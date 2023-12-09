@@ -1,30 +1,13 @@
-# React + TypeScript + Vite
+# Info
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A quick Attempt at a livestream video server and simple UI which I can send videos from OBS on my mac too. 
 
-Currently, two official plugins are available:
+## Why?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Specifically to view my 3d printer's camera feeds and allow others to as well.
 
-## Expanding the ESLint configuration
+## How
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Its a react frontend (barely) streaming from a node backend with express and node-media-server (nms).
+- nms is the rtmp target which I send video to from my 3d printers (well, from the printer, to OBS, to the rtmp server provide by nms).
+- nms then makes this input stream available at a configured url as a .flv file to stream for client's with access to the url.
